@@ -2,6 +2,7 @@ package com.geekydroid.androidbookcompose
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -13,12 +14,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.geekydroid.androidbookcompose.ui.theme.AndroidBookComposeTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.util.concurrent.CancellationException
 import kotlin.random.Random
 
 private const val TAG = "MainActivityy"
@@ -34,8 +37,9 @@ class MainActivity : ComponentActivity() {
                 ) {
                     //SideEffectDemo()
                     //LaunchedEffectDemo()
-                    RememberCoroutineScopeDemo()
+                    //RememberCoroutineScopeDemo()
                     //RememberUpdatedStateDemo()
+                    DisposableEffectDemo()
                 }
             }
         }
@@ -220,6 +224,48 @@ fun TwoButtonScreen()
         }
 
         TimerScreen(buttonColor)
+    }
+}
+
+/**
+ * Disposable Effect is like LaunchedEffect will launch at the first composition and will be launched only if the
+ * key changes. But in LaunchedEffect we cannot able to detect the cancellation. But in Disposable Effect an OnDispose
+ * callback is called whenever the effect cancels. So we can make some post cancellation things there.
+ */
+@Composable
+fun DisposableEffectDemo()
+{
+    var isTimerRunning by remember {
+        mutableStateOf(false)
+    }
+
+    val context = LocalContext.current
+
+    DisposableEffect(key1 = Unit, effect = {
+        val job = CoroutineScope(Dispatchers.IO).launch {
+            Log.d(TAG, "DisposableEffectDemo: Job 1 started")
+            delay(5000L)
+        }
+        job.invokeOnCompletion {
+            Log.d(TAG, "DisposableEffectDemo: job completed ${it?.message}")
+        }
+        val random = (1..10).random()
+        Toast.makeText(context, "Timer started $random", Toast.LENGTH_SHORT).show()
+        onDispose {
+            Toast.makeText(context, "Timer ended $random", Toast.LENGTH_SHORT).show()
+            job.cancel(CancellationException("cancelled due to state change"))
+        }
+    })
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Button(onClick = {
+            isTimerRunning = !isTimerRunning
+        }) {
+            Text(text = if (isTimerRunning) "Stop" else "Start")
+        }
     }
 }
 
