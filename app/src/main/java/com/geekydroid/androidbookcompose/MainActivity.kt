@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     //LaunchedEffectDemo()
                     //RememberCoroutineScopeDemo()
                     //RememberUpdatedStateDemo()
-                    DisposableEffectDemo()
+                    //DisposableEffectDemo()
                 }
             }
         }
