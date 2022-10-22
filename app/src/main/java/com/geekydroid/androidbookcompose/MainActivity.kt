@@ -85,6 +85,9 @@ fun SafDemo(
         Button(onClick = actions::onOpenSafClicked) {
             Text(text = "Storage Access Framework Demo")
         }
+        Button(onClick = actions::accessDataFromSavedUri) {
+            Text(text = "Access data from saved URI")
+        }
         Text(text = data)
     }
 }

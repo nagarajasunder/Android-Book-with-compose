@@ -3,9 +3,13 @@ package com.geekydroid.androidbookcompose
 import android.app.Application
 import android.content.ContentResolver
 import android.net.Uri
-import android.os.Environment
 import android.provider.OpenableColumns
-import android.util.Log
+import androidx.compose.ui.res.stringResource
+import androidx.datastore.core.DataStore
+import androidx.datastore.dataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,6 +17,10 @@ import androidx.lifecycle.viewModelScope
 import com.opencsv.CSVReader
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import java.io.*
@@ -21,12 +29,16 @@ import javax.inject.Inject
 private const val TAG = "MainViewmodel"
 
 @HiltViewModel
-class MainViewmodel @Inject constructor(application: Application) : AndroidViewModel(application),ScreenActions {
+class MainViewmodel @Inject constructor(
+    private val datastore: DataStore<Preferences>,
+    application: Application
+) : AndroidViewModel(application), ScreenActions {
 
     private val eventsChannel:Channel<ScreenEvents> = Channel()
     val events = eventsChannel.receiveAsFlow()
     private val _importedData:MutableLiveData<String> = MutableLiveData("")
     val importedData:LiveData<String> = _importedData
+    val savedUriData:MutableLiveData<String> = MutableLiveData("")
 
     override fun onOpenSafClicked() {
         viewModelScope.launch {
@@ -34,21 +46,74 @@ class MainViewmodel @Inject constructor(application: Application) : AndroidViewM
         }
     }
 
+    override fun accessDataFromSavedUri() {
+       viewModelScope.launch {
+           val uri = getSavedUri().first()
+           delay(1000L)
+           _importedData.value = "$uri value"
+           val uriP = Uri.parse(savedUriData.value!!)
+           getDataFromUri(uriP)
+       }
+    }
+
+    private fun getSavedUri(): Flow<String> {
+        val key = stringPreferencesKey("uri_key")
+        return datastore.data.map { prefs ->
+            prefs[key]?:""
+        }
+    }
+
     fun readCsv(uri: Uri) {
-        val context = getApplication<AndroidBook>().applicationContext
-       val parcelFileDescriptor =
-           context.contentResolver.openFileDescriptor(
-               uri,
-               "r",
-               null
-           )
-        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
-        val fileName = context.contentResolver.getFileName(uri)
-        val file = File(context.cacheDir,fileName)
-        val outputStream = FileOutputStream(file)
-        copyData(inputStream,outputStream)
-        val data = importData(file)
-        _importedData.value = data
+//        val context = getApplication<AndroidBook>().applicationContext
+//       val parcelFileDescriptor =
+//           context.contentResolver.openFileDescriptor(
+//               uri,
+//               "r",
+//               null
+//           )
+//        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
+//        val fileName = context.contentResolver.getFileName(uri)
+//        val file = File(context.cacheDir,fileName)
+//        val outputStream = FileOutputStream(file)
+//        copyData(inputStream,outputStream)
+//        val data = importData(file)
+//        _importedData.value = data
+        saveUri(uri)
+        getDataFromUri(uri)
+    }
+
+    private fun saveUri(uri: Uri) {
+        viewModelScope.launch {
+            val key = stringPreferencesKey("uri_key")
+            datastore.edit {
+                it[key] = uri.toString()
+            }
+        }
+    }
+
+    private fun getDataFromUri(uri: Uri) {
+        try {
+            val context = getApplication<AndroidBook>().applicationContext
+            val builder = StringBuilder()
+            context.contentResolver.openInputStream(uri)?.use { inputStream ->
+                BufferedReader(
+                   InputStreamReader(inputStream)
+                ).use { reader ->
+                    var line = reader.readLine()
+                    while (line != null)
+                    {
+                        builder.append(line)
+                        line = reader.readLine()
+                    }
+
+                }
+            }
+            _importedData.postValue(builder.toString())
+        }
+        catch (e:Exception)
+        {
+            _importedData.postValue(e.message?:"error happened")
+        }
     }
 
     private fun importData(file: File): String {
@@ -93,6 +158,7 @@ sealed class ScreenEvents
 interface ScreenActions
 {
     fun onOpenSafClicked()
+    fun accessDataFromSavedUri()
 }
 
 fun ContentResolver.getFileName(uri:Uri):String
