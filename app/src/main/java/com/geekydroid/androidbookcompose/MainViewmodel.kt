@@ -64,22 +64,22 @@ class MainViewmodel @Inject constructor(
     }
 
     fun readCsv(uri: Uri) {
-//        val context = getApplication<AndroidBook>().applicationContext
-//       val parcelFileDescriptor =
-//           context.contentResolver.openFileDescriptor(
-//               uri,
-//               "r",
-//               null
-//           )
-//        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
-//        val fileName = context.contentResolver.getFileName(uri)
-//        val file = File(context.cacheDir,fileName)
-//        val outputStream = FileOutputStream(file)
-//        copyData(inputStream,outputStream)
-//        val data = importData(file)
-//        _importedData.value = data
-        saveUri(uri)
-        getDataFromUri(uri)
+        val context = getApplication<AndroidBook>().applicationContext
+       val parcelFileDescriptor =
+           context.contentResolver.openFileDescriptor(
+               uri,
+               "r",
+               null
+           )
+        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
+        val fileName = context.contentResolver.getFileName(uri)
+        val file = File(context.cacheDir,fileName)
+        val outputStream = FileOutputStream(file)
+        copyData(inputStream,outputStream)
+        val data = importData(file)
+        _importedData.value = data
+//        saveUri(uri)
+//        getDataFromUri(uri)
     }
 
     private fun saveUri(uri: Uri) {
