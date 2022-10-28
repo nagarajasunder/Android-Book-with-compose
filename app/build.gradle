@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.geekydroid.androidbookcompose"
@@ -105,6 +105,9 @@ dependencies {
 
     // Architecture Components
     testImplementation 'androidx.arch.core:core-testing:2.1.0'
+
+    //Compose animations
+    implementation "androidx.compose.animation:animation:$compose_version"
 
     // Truth
     testImplementation "com.google.truth:truth:1.1.3"
