@@ -19,58 +19,74 @@ fun FrequencyAnimation() {
     ) {
         FrequencyBar(
             targetDp = 170.dp,
-            animationSpec = keyframes {
-                durationMillis = 3000
-                75.dp at 500 with LinearEasing
-                50.dp at 1000 with FastOutSlowInEasing
-                80.dp at 1500 with LinearEasing
-                25.dp at 2000 with FastOutSlowInEasing
-                170.dp at 2500 with LinearOutSlowInEasing
-            }
+            animationSpec = infiniteRepeatable(
+                keyframes {
+                    durationMillis = 3000
+                    75.dp at 500 with LinearEasing
+                    50.dp at 1000 with FastOutSlowInEasing
+                    80.dp at 1500 with LinearEasing
+                    25.dp at 2000 with FastOutSlowInEasing
+                    170.dp at 2500 with LinearOutSlowInEasing
+                },
+                RepeatMode.Reverse
+            )
         )
         FrequencyBar(
             targetDp = 75.dp,
-            animationSpec = keyframes {
-                durationMillis = 3000
-                200.dp at 500 with LinearEasing
-                25.dp at 1000 with LinearEasing
-                80.dp at 1500 with LinearEasing
-                50.dp at 2000 with LinearEasing
-                75.dp at 2500 with LinearEasing
-            }
+            animationSpec = infiniteRepeatable(
+
+                keyframes {
+                    durationMillis = 3000
+                    200.dp at 500 with LinearEasing
+                    25.dp at 1000 with LinearEasing
+                    80.dp at 1500 with LinearEasing
+                    50.dp at 2000 with LinearEasing
+                    75.dp at 2500 with LinearEasing
+                },
+                repeatMode = RepeatMode.Reverse
+            )
         )
         FrequencyBar(
             targetDp = 150.dp,
-            animationSpec = keyframes {
-                durationMillis = 3000
-                80.dp at 500 with LinearEasing
-                50.dp at 1000 with LinearEasing
-                125.dp at 1500 with LinearEasing
-                70.dp at 2000 with LinearEasing
-                150.dp at 2500 with LinearEasing
-            }
+            animationSpec = infiniteRepeatable(
+                animation = keyframes {
+                    durationMillis = 3000
+                    80.dp at 500 with LinearEasing
+                    50.dp at 1000 with LinearEasing
+                    125.dp at 1500 with LinearEasing
+                    70.dp at 2000 with LinearEasing
+                    150.dp at 2500 with LinearEasing
+                },
+                RepeatMode.Reverse
+            )
         )
         FrequencyBar(
             targetDp = 180.dp,
-            animationSpec = keyframes {
-                durationMillis = 3000
-                80.dp at 500 with LinearEasing
-                25.dp at 1000 with LinearEasing
-                130.dp at 1500 with LinearEasing
-                70.dp at 2000 with LinearEasing
-                180.dp at 2500 with LinearEasing
-            }
+            animationSpec = infiniteRepeatable(
+                animation = keyframes {
+                    durationMillis = 3000
+                    80.dp at 500 with LinearEasing
+                    25.dp at 1000 with LinearEasing
+                    130.dp at 1500 with LinearEasing
+                    70.dp at 2000 with LinearEasing
+                    180.dp at 2500 with LinearEasing
+                },
+                RepeatMode.Reverse
+            )
         )
         FrequencyBar(
             targetDp = 120.dp,
-            animationSpec = keyframes {
-                durationMillis = 3000
-                80.dp at 500 with LinearEasing
-                50.dp at 1000 with LinearEasing
-                125.dp at 1500 with LinearEasing
-                60.dp at 2000 with LinearEasing
-                120.dp at 2500 with LinearEasing
-            }
+            animationSpec = infiniteRepeatable(
+                animation = keyframes {
+                    durationMillis = 3000
+                    80.dp at 500 with LinearEasing
+                    50.dp at 1000 with LinearEasing
+                    125.dp at 1500 with LinearEasing
+                    60.dp at 2000 with LinearEasing
+                    120.dp at 2500 with LinearEasing
+                },
+                RepeatMode.Reverse
+            )
         )
     }
 }
