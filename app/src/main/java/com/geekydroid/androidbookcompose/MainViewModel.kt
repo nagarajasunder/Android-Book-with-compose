@@ -1,5 +1,6 @@
 package com.geekydroid.androidbookcompose
 
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.*
 import com.zhuinden.flowcombinetuplekt.combineTuple
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -8,6 +9,7 @@ import kotlinx.coroutines.flow.map
 
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.random.Random
 
 @HiltViewModel
 class MainViewModel @Inject constructor() : ViewModel() {
@@ -15,19 +17,23 @@ class MainViewModel @Inject constructor() : ViewModel() {
     private val data: MutableLiveData<UiResult<InvestmentOverview>> =
         MutableLiveData(UiResult.Loading())
     private val dateFilter: MutableLiveData<String> = MutableLiveData("")
+    private val dataList = MutableLiveData(mutableStateListOf<String>())
 
     val uiData = combineTuple(
         data.asFlow(),
-        dateFilter.asFlow()
-    ).map { (uiResult, date) ->
-        ScreenData(date, uiResult)
+        dateFilter.asFlow(),
+        dataList.asFlow()
+    ).map { (uiResult, date,list) ->
+        ScreenData(date, uiResult,list)
     }.asLiveData()
 
     fun postSuccess() {
         viewModelScope.launch {
             delay(1000)
-            val investmentOverview = InvestmentOverview()
-            data.postValue(UiResult.Success(investmentOverview))
+            val listItems = dataList.value!!
+            val randomChar = Random.nextInt(15)
+            listItems.add("New Item $randomChar")
+            dataList.value = listItems
         }
     }
 
@@ -49,9 +55,10 @@ data class InvestmentOverview(
 
 data class ScreenData(
     val date: String,
-    val data: UiResult<InvestmentOverview>
+    val data: UiResult<InvestmentOverview>,
+    val dataList:List<String>
 ) {
     companion object {
-        val initialState = ScreenData("", UiResult.Loading())
+        val initialState = ScreenData("", UiResult.Loading(), listOf())
     }
 }

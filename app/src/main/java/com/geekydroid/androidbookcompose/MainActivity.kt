@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -61,6 +62,12 @@ fun ScreenContent(
         Button(onClick = onErrorClick) {
             Text(text = "Update Failure")
         }
+       LazyRow() {
+           items(data.dataList.size) { index ->
+               Text(text = data.dataList[index])
+
+           }
+       }
         when (data.data) {
             is UiResult.Error -> {
                 Text(text = "Error")
