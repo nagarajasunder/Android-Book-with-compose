@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.geekydroid.androidbookcompose">
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".AndroidBook"
         android:allowBackup="true"
@@ -25,6 +28,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".SmsBroadcastReceiver" android:exported="true"
+            android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
