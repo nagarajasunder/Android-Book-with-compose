@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <inset android:drawable="@drawable/green_start_trip" />
+        <!--<shape android:shape="rectangle">
+            <corners android:radius="20dp" />
+            <solid android:
+            <solid android:color="#00c25a" />
+
+        </shape>-->
+    </item>
+
+    <item android:id="@android:id/progress">
+
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="0dp" />
+                <solid android:color="#158949" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
