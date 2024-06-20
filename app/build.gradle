@@ -39,8 +39,8 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.1.0-rc02'
-        kotlinCompilerVersion '1.6.10'
+        kotlinCompilerExtensionVersion '1.4.4'
+        kotlinCompilerVersion '1.8.10'
     }
     packagingOptions {
         resources {
@@ -72,6 +72,9 @@ dependencies {
 
     // Compose Extended Icons
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
+
+    implementation "com.squareup.okhttp3:okhttp:4.12.0"
+    implementation "com.google.code.gson:gson:2.10.1"
 
     // ViewModel + LiveData
     def lifecycle_version = "2.5.1"
