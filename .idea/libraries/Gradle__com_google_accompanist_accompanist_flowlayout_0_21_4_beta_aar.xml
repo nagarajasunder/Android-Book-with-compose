@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.accompanist:accompanist-flowlayout:0.21.4-beta@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9ace4b819b1a07b7f752a145324e0bf8/transformed/accompanist-flowlayout-0.21.4-beta/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9ace4b819b1a07b7f752a145324e0bf8/transformed/accompanist-flowlayout-0.21.4-beta/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-flowlayout/0.21.4-beta/4e1699d807f73dfb384158d6bfc166c1bac3dafe/accompanist-flowlayout-0.21.4-beta-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-flowlayout/0.21.4-beta/f394e08983d862a4cba2440ba13cb26bd6fc62e3/accompanist-flowlayout-0.21.4-beta-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,134 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.geekydroid.androidbookcompose"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml
+10
+11    <permission
+11-->[androidx.core:core:1.9.0] /home/nagaraja.s/.gradle/caches/transforms-3/7ee6d74e78d29439fbeead4220777151/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+12        android:name="com.geekydroid.androidbookcompose.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.9.0] /home/nagaraja.s/.gradle/caches/transforms-3/7ee6d74e78d29439fbeead4220777151/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.9.0] /home/nagaraja.s/.gradle/caches/transforms-3/7ee6d74e78d29439fbeead4220777151/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="com.geekydroid.androidbookcompose.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.9.0] /home/nagaraja.s/.gradle/caches/transforms-3/7ee6d74e78d29439fbeead4220777151/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.9.0] /home/nagaraja.s/.gradle/caches/transforms-3/7ee6d74e78d29439fbeead4220777151/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+16
+17    <application
+17-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:6:5-28:19
+18        android:name="com.geekydroid.androidbookcompose.AndroidBook"
+18-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:7:9-36
+19        android:allowBackup="true"
+19-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:8:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.9.0] /home/nagaraja.s/.gradle/caches/transforms-3/7ee6d74e78d29439fbeead4220777151/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+21        android:dataExtractionRules="@xml/data_extraction_rules"
+21-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:9:9-65
+22        android:debuggable="true"
+23        android:fullBackupContent="@xml/backup_rules"
+23-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:10:9-54
+24        android:icon="@mipmap/ic_launcher"
+24-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:11:9-43
+25        android:label="@string/app_name"
+25-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:12:9-41
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:13:9-54
+27        android:supportsRtl="true"
+27-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:14:9-35
+28        android:testOnly="true"
+29        android:theme="@style/Theme.AndroidBookCompose" >
+29-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:15:9-56
+30        <activity
+30-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:17:9-27:20
+31            android:name="com.geekydroid.androidbookcompose.MainActivity"
+31-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:18:13-41
+32            android:exported="true"
+32-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:19:13-36
+33            android:label="@string/app_name"
+33-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:20:13-45
+34            android:theme="@style/Theme.AndroidBookCompose" >
+34-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:21:13-60
+35            <intent-filter>
+35-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:22:13-26:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:23:17-69
+36-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:23:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:25:17-77
+38-->/home/nagaraja.s/AndroidProjects/personal/Android-Book-with-compose/app/src/main/AndroidManifest.xml:25:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity
+41-->[androidx.compose.ui:ui-tooling:1.3.0-beta02] /home/nagaraja.s/.gradle/caches/transforms-3/6d03ff780ca73c7e32f6c1a3f55aaca4/transformed/ui-tooling-1.3.0-beta02/AndroidManifest.xml:23:9-25:39
+42            android:name="androidx.compose.ui.tooling.PreviewActivity"
+42-->[androidx.compose.ui:ui-tooling:1.3.0-beta02] /home/nagaraja.s/.gradle/caches/transforms-3/6d03ff780ca73c7e32f6c1a3f55aaca4/transformed/ui-tooling-1.3.0-beta02/AndroidManifest.xml:24:13-71
+43            android:exported="true" />
+43-->[androidx.compose.ui:ui-tooling:1.3.0-beta02] /home/nagaraja.s/.gradle/caches/transforms-3/6d03ff780ca73c7e32f6c1a3f55aaca4/transformed/ui-tooling-1.3.0-beta02/AndroidManifest.xml:25:13-36
+44        <activity
+44-->[androidx.compose.ui:ui-test-manifest:1.3.0-beta02] /home/nagaraja.s/.gradle/caches/transforms-3/eb7036259197d587efd0b85d3ed527b1/transformed/ui-test-manifest-1.3.0-beta02/AndroidManifest.xml:23:9-25:39
+45            android:name="androidx.activity.ComponentActivity"
+45-->[androidx.compose.ui:ui-test-manifest:1.3.0-beta02] /home/nagaraja.s/.gradle/caches/transforms-3/eb7036259197d587efd0b85d3ed527b1/transformed/ui-test-manifest-1.3.0-beta02/AndroidManifest.xml:24:13-63
+46            android:exported="true" />
+46-->[androidx.compose.ui:ui-test-manifest:1.3.0-beta02] /home/nagaraja.s/.gradle/caches/transforms-3/eb7036259197d587efd0b85d3ed527b1/transformed/ui-test-manifest-1.3.0-beta02/AndroidManifest.xml:25:13-36
+47
+48        <service
+48-->[androidx.room:room-runtime:2.4.3] /home/nagaraja.s/.gradle/caches/transforms-3/8b8e20f34ae5e09066d1915e17006730/transformed/room-runtime-2.4.3/AndroidManifest.xml:25:9-28:40
+49            android:name="androidx.room.MultiInstanceInvalidationService"
+49-->[androidx.room:room-runtime:2.4.3] /home/nagaraja.s/.gradle/caches/transforms-3/8b8e20f34ae5e09066d1915e17006730/transformed/room-runtime-2.4.3/AndroidManifest.xml:26:13-74
+50            android:directBootAware="true"
+50-->[androidx.room:room-runtime:2.4.3] /home/nagaraja.s/.gradle/caches/transforms-3/8b8e20f34ae5e09066d1915e17006730/transformed/room-runtime-2.4.3/AndroidManifest.xml:27:13-43
+51            android:exported="false" />
+51-->[androidx.room:room-runtime:2.4.3] /home/nagaraja.s/.gradle/caches/transforms-3/8b8e20f34ae5e09066d1915e17006730/transformed/room-runtime-2.4.3/AndroidManifest.xml:28:13-37
+52
+53        <provider
+53-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:25:9-33:20
+54            android:name="androidx.startup.InitializationProvider"
+54-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:26:13-67
+55            android:authorities="com.geekydroid.androidbookcompose.androidx-startup"
+55-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:27:13-68
+56            android:exported="false" >
+56-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:28:13-37
+57            <meta-data
+57-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:30:13-32:52
+58                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+58-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:31:17-85
+59                android:value="androidx.startup" />
+59-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:32:17-49
+60        </provider>
+61
+62        <receiver
+62-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:35:9-47:20
+63            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+63-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:36:13-76
+64            android:directBootAware="false"
+64-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:37:13-44
+65            android:enabled="true"
+65-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:38:13-35
+66            android:exported="true"
+66-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:39:13-36
+67            android:permission="android.permission.DUMP" >
+67-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:40:13-57
+68            <intent-filter>
+68-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:41:13-43:29
+69                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+69-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:42:17-91
+69-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:42:25-88
+70            </intent-filter>
+71            <intent-filter>
+71-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:44:13-46:29
+72                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+72-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:45:17-85
+72-->[androidx.profileinstaller:profileinstaller:1.2.0] /home/nagaraja.s/.gradle/caches/transforms-3/36e42cfbadc9099e42fad077639c93ba/transformed/profileinstaller-1.2.0/AndroidManifest.xml:45:25-82
+73            </intent-filter>
+74        </receiver>
+75    </application>
+76
+77</manifest>
